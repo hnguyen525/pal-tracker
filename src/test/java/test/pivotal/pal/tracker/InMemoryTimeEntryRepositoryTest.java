@@ -61,6 +61,7 @@ public class InMemoryTimeEntryRepositoryTest {
                 new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8),
                 new TimeEntry(2L, 789L, 654L, LocalDate.parse("2017-01-07"), 4)
         );
+        //assertThat(repo.list()).containsExactlyInAnyOrderElementsOf(expected);
         assertThat(repo.list()).containsExactlyInAnyOrderElementsOf(expected);
     }
 
@@ -73,7 +74,7 @@ public class InMemoryTimeEntryRepositoryTest {
                 created.getId(),
                 new TimeEntry(321L, 654L, LocalDate.parse("2017-01-09"), 5));
 
-        TimeEntry expected = new TimeEntry(created.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5);
+        TimeEntry expected = new TimeEntry((Long) created.getId(), 321L, 654L, LocalDate.parse("2017-01-09"), 5);
         assertThat(updatedEntry).isEqualTo(expected);
         assertThat(repo.find(created.getId())).isEqualTo(expected);
     }
@@ -99,6 +100,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
         repo.delete(created.getId());
         assertThat(repo.list()).isEmpty();
+
     }
 
     @Test
