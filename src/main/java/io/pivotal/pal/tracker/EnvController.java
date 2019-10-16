@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 @RestController
-public class EnvController {
+public class
+EnvController {
     private final String port;
     private final String memoryLimit;
     private final String cfInstanceIndex;
@@ -22,17 +23,17 @@ public class EnvController {
     }
     @GetMapping("/env")
     public Map<String, String> getEnv() {
-        /*Map<String, String> env = new HashMap<>();
+        Map<String, String> env = new HashMap<>();
 
         env.put("PORT", port);
         env.put("MEMORY_LIMIT", memoryLimit);
         env.put("CF_INSTANCE_INDEX", cfInstanceIndex);
         env.put("CF_INSTANCE_ADDR", cfInstanceAddress);
-        return env*/
+        return env;
 
-        return Map.of("PORT", port,
+        /*return Map.of("PORT", port,
                 "MEMORY_LIMIT", memoryLimit, "CF_INSTANCE_INDEX", cfInstanceIndex,
-        "CF_INSTANCE_ADDR", cfInstanceAddress);
+        "CF_INSTANCE_ADDR", cfInstanceAddress);*/
 
 
     }
